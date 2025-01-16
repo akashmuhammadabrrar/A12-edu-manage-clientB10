@@ -5,6 +5,8 @@ import TeachReqForm from "../Pages/TeachingRequestForm/TeachReqForm";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
+import Privet from "../Pages/Privet/Privet";
+import PrivetRoute from "./PrivetRoute";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ export const router = createBrowserRouter([
       {
         path: "/registration",
         element: <Registration></Registration>,
+      },
+      {
+        path: "/privet",
+        element: (
+          <PrivetRoute>
+            <Privet></Privet>
+          </PrivetRoute>
+        ),
       },
     ],
   },

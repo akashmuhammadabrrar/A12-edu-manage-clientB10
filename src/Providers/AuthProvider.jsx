@@ -5,6 +5,7 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 
@@ -24,12 +25,19 @@ const AuthProvider = ({ children }) => {
   //  login user
   const loginUser = (email, password) => {
     setLoading(true);
-    return signInWithEmailAndPassword(email, password);
+    return signInWithEmailAndPassword(auth, email, password);
   };
   // logout user
-  const logOut = (auth) => {
+  const logOut = () => {
     setLoading(true);
     return signOut(auth);
+  };
+  //   update user profile
+  const updateUserProfile = (name, photo) => {
+    return updateProfile(auth.currentUser, {
+      displayName: name,
+      photoURL: photo,
+    });
   };
 
   //   observatory function
@@ -46,10 +54,12 @@ const AuthProvider = ({ children }) => {
 
   const authInfo = {
     user,
+    setUser,
     loading,
     createUser,
     loginUser,
     logOut,
+    updateUserProfile,
   };
 
   return (
