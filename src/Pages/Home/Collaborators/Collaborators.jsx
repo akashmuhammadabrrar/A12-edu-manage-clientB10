@@ -11,10 +11,16 @@ import colD from "../../../assets/collaborators/FreeCodeCamp_logo.png";
 import colE from "../../../assets/collaborators/images (1).png";
 import colF from "../../../assets/collaborators/images.png";
 import colG from "../../../assets/collaborators/thumbnail.png";
+import TitleSection from "../../../components/TitleSection/TitleSection";
 
 const Collaborators = () => {
   return (
-    <div className="">
+    <section className="">
+      <div className="my-6">
+        <TitleSection
+          heading={"Collaborators Our Team Widely"}
+          subHeading={"Meet Our Global Partners"}></TitleSection>
+      </div>
       <Swiper
         slidesPerView={4}
         spaceBetween={30}
@@ -65,7 +71,7 @@ const Collaborators = () => {
           </div>
         </SwiperSlide>
       </Swiper>
-    </div>
+    </section>
   );
 };
 
