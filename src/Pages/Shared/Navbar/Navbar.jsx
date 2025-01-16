@@ -5,16 +5,16 @@ import logo from "../../../assets/Logo.png";
 const Navbar = () => {
   const navLinks = (
     <>
-      <li>
+      <li className="text-xl">
         <Link to="/">Home</Link>
       </li>
       {/* <li>
             <Link to="/dashboard">Dashboard</Link>
           </li> */}
-      <li>
+      <li className="text-xl">
         <Link to="/allClasses">All Classes</Link>
       </li>
-      <li>
+      <li className="text-xl">
         <Link to="/">Teach On Ap Classroom</Link>
       </li>
       {/* {user && isAdmin && (
@@ -72,10 +72,10 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-white font-bold">
-          ED
+        <a className="btn btn-ghost text-2xl text-white font-bold">
+          <span className="text-green-400  font-bold">ED</span>
           <img className="w-8" src={logo} alt="" />
-          Manage
+          <span className="text-blue-600">Manage</span>
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
