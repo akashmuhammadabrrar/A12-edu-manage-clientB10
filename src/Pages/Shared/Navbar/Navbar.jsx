@@ -15,7 +15,7 @@ const Navbar = () => {
         <Link to="/allClasses">All Classes</Link>
       </li>
       <li className="text-xl">
-        <Link to="/">Teach On Ap Classroom</Link>
+        <Link to="/teacherReq">Teach On Ed Manage Classroom</Link>
       </li>
       {/* {user && isAdmin && (
             <li>
@@ -48,7 +48,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar max-w-screen-2xl mx-auto  bg-black bg-opacity-40 fixed z-10 top-0 text-white font-bold">
+    <div className="navbar max-w-screen-2xl mx-auto  bg-black bg-opacity-40 fixed z-10 top-0 lg:text-white font-bold">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -111,8 +111,23 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-black bg-opacity-30 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
+            <div>
+              <p>Name:</p>
+            </div>
             <li>
-              <a className="justify-between">Profile</a>
+              <Link>
+                <button className="btn btn-ghost">Profile</button>
+              </Link>
+            </li>
+            <li>
+              <Link>
+                <button className="btn btn-ghost">Dashboard</button>
+              </Link>
+            </li>
+            <li>
+              <Link to="/login">
+                <button className="btn btn-ghost">Login</button>
+              </Link>
             </li>
           </ul>
         </div>

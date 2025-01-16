@@ -18,7 +18,7 @@ const Collaborators = () => {
     <section className="">
       <div className="my-6">
         <TitleSection
-          heading={"Collaborators Our Team Widely"}
+          heading={"Collaborate Our Team Around The World"}
           subHeading={"Meet Our Global Partners"}></TitleSection>
       </div>
       <Swiper
