@@ -1,9 +1,11 @@
 import React from "react";
+import Banner from "./Banner/Banner.jsx";
 
 const Home = () => {
   return (
-    <div>
-      <h2 className="text-xl">This Is Home And Fortress</h2>
+    <div className="">
+      {/* Top Banner/ slider */}
+      <Banner></Banner>
     </div>
   );
 };

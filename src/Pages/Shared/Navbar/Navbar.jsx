@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../../assets/Logo.png";
 
 const Navbar = () => {
   const navLinks = (
@@ -11,10 +12,10 @@ const Navbar = () => {
             <Link to="/dashboard">Dashboard</Link>
           </li> */}
       <li>
-        <Link to="/menu">Menu</Link>
+        <Link to="/allClasses">All Classes</Link>
       </li>
       <li>
-        <Link to="/orders/salad">Order Foods</Link>
+        <Link to="/">Teach On Ap Classroom</Link>
       </li>
       {/* {user && isAdmin && (
             <li>
@@ -47,7 +48,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar max-w-screen-2xl mx-auto  bg-black bg-opacity-40 fixed z-10">
+    <div className="navbar max-w-screen-2xl mx-auto  bg-black bg-opacity-40 fixed z-10 top-0 text-white font-bold">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -72,9 +73,9 @@ const Navbar = () => {
           </ul>
         </div>
         <a className="btn btn-ghost text-xl text-white font-bold">
-          Belly
-          <img className="w-8" src="" alt="" />
-          BiteB
+          ED
+          <img className="w-8" src={logo} alt="" />
+          Manage
         </a>
       </div>
       <div className="navbar-center hidden lg:flex">
