@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Introduction to Web Development",
+    "name": "Alice Johnson",
+    "email": "alice.johnson@example.com",
+    "price": 49.99,
+    "description": "Learn the basics of HTML, CSS, and JavaScript to build responsive websites.",
+    "image": "https://www.shutterstock.com/image-photo/teacher-giving-computer-science-lecture-260nw-2102457382.jpg"
+  },
+  {
+    "title": "Mastering React.js",
+    "name": "Michael Smith",
+    "email": "michael.smith@example.com",
+    "price": 79.99,
+    "description": "Deep dive into React.js and build dynamic, high-performance web applications.",
+    "image": "https://media.licdn.com/dms/image/D4D12AQGN5DH_6qRSoQ/article-cover_image-shrink_600_2000/0/1701667081108?e=2147483647&v=beta&t=Zs5clYjHFawhKeisK_h4bR-GeYl5SWuOzizs4xDhD2Q"
+  },
+  {
+    "title": "Graphic Design for Beginners",
+    "name": "Emma Brown",
+    "email": "emma.brown@example.com",
+    "price": 59.99,
+    "description": "Learn graphic design principles and tools like Adobe Photoshop and Illustrator.",
+    "image": "https://elearningindustry.com/wp-content/uploads/2019/09/elearning-graphic-design-best-practices.jpg"
+  },
+  {
+    "title": "Full-Stack Development with MERN",
+    "name": "David Lee",
+    "email": "david.lee@example.com",
+    "price": 99.99,
+    "description": "Build complete web applications using MongoDB, Express, React, and Node.js.",
+    "image": "https://cdn.servermania.com/kb/KB-MERN-Featured.jpg"
+  },
+  {
+    "title": "UI/UX Design Fundamentals",
+    "name": "Sophia Wilson",
+    "email": "sophia.wilson@example.com",
+    "price": 69.99,
+    "description": "Master the basics of UI/UX design and improve user experience across platforms.",
+    "image": "https://travelerwp.com/wp-content/uploads/2023/06/Difference-between-UI-and-UX-Design-Home-768x487.jpg"
+  }
+]

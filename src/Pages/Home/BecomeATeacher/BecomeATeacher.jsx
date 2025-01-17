@@ -17,7 +17,7 @@ const BecomeATeacher = () => {
               Students Then Take Massive Opportunity To Become An Honorable
               Teacher. And Make Them Shine By Your Experience And Knowledge.
             </p>
-            <Link>
+            <Link to="/teacherReq">
               <button className="btn btn-info font-semibold">
                 Become A Teacher
               </button>

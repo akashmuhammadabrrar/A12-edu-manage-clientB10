@@ -103,7 +103,7 @@ const Navbar = () => {
             role="button"
             className="btn btn-ghost btn-circle avatar">
             <div className="w-16 rounded-full">
-              {/* {user && user?.email ? (
+              {user && user?.email ? (
                 <div>
                   <img
                     src={user?.photoURL}
@@ -114,18 +114,20 @@ const Navbar = () => {
                   <p className="w-10 rounded-full">{user?.displayName}</p>
                 </div>
               ) : (
-            )} */}
-              <img
-                alt="Tailwind CSS Navbar component"
-                src="https://i.pinimg.com/736x/d9/39/f4/d939f4cebfa4ba7814090cab14b2dd40.jpg"
-              />
+                <img
+                  alt="Tailwind CSS Navbar component"
+                  src="https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg"
+                />
+              )}
             </div>
           </div>
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-black bg-opacity-30 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
             <div>
-              <p>Name:</p>
+              <p className="bg-black p-2 rounded-lg">
+                Name: {user?.displayName}
+              </p>
             </div>
             <li>
               <Link>

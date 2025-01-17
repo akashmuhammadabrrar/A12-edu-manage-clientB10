@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { authContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin/SocialLogin";
 
 const Login = () => {
   const { loginUser, loading } = useContext(authContext);
@@ -81,6 +82,11 @@ const Login = () => {
               />
             </div>
           </form>
+          <div className="divider">Or</div>
+          <div className="flex justify-center">
+            {" "}
+            <SocialLogin></SocialLogin>
+          </div>
         </div>
       </div>
     </div>
