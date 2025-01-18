@@ -5,10 +5,11 @@ import { FaCodePullRequest } from "react-icons/fa6";
 import { IoHome } from "react-icons/io5";
 import { MdAddToPhotos, MdClass } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
 
 const Dashboard = () => {
   // todo: getAdmin value from the database
-  const isAdmin = true;
+  const [isAdmin] = useAdmin();
   const isTeacher = true;
 
   return (
