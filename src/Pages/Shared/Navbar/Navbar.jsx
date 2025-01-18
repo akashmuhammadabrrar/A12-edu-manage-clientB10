@@ -135,7 +135,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li>
-              <Link>
+              <Link to="/dashboard/userHome">
                 <button className="btn btn-ghost">Dashboard</button>
               </Link>
             </li>

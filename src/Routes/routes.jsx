@@ -7,6 +7,8 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import Privet from "../Pages/Privet/Privet";
 import PrivetRoute from "./PrivetRoute";
+import Dashboard from "../Layouts/Dashboard";
+import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 
 export const router = createBrowserRouter([
   {
@@ -44,6 +46,21 @@ export const router = createBrowserRouter([
           </PrivetRoute>
         ),
       },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivetRoute>
+        <Dashboard></Dashboard>
+      </PrivetRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard/userHome",
+        element: <UserHome></UserHome>,
+      },
+      // admin routes
     ],
   },
 ]);

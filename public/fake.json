@@ -38,5 +38,37 @@
     "price": 69.99,
     "description": "Master the basics of UI/UX design and improve user experience across platforms.",
     "image": "https://travelerwp.com/wp-content/uploads/2023/06/Difference-between-UI-and-UX-Design-Home-768x487.jpg"
+  },
+  {
+    "title": "Digital Marketing And Sells Manager",
+    "name": "Johnny Depp",
+    "email": "sophia.wilson@example.com",
+    "price": 69.99,
+    "description": "Master the basics of UI/UX design and improve user experience across platforms.",
+    "image": "https://img.freepik.com/free-photo/digital-marketing-with-icons-business-people_53876-94833.jpg?semt=ais_hybrid"
+  },
+  {
+    "title": "Search Engine Optimization (SEO)",
+    "name": "Leo De Capprio",
+    "email": "leo@gmail.com",
+    "price": 56.99,
+    "description": "Master the basics of UI/UX design and improve user experience across platforms.",
+    "image": "https://thumbs.dreamstime.com/b/seo-search-engine-optimization-business-concept-uds-online-marketing-modern-interface-showing-symbol-keyword-research-335937537.jpg"
+  },
+  {
+    "title": "Data structure And ALgorithm",
+    "name": "Robert Downy",
+    "email": "robert@gmail.com",
+    "price": 51,
+    "description": "Master the basics of Data Structure And ALgorithm and improve user experience across platforms.",
+    "image": "https://thumbs.dreamstime.com/b/seo-search-engine-optimization-business-concept-uds-online-marketing-modern-interface-showing-symbol-keyword-research-335937537.jpg"
+  },
+  {
+    "title": "Advanced Database And Management",
+    "name": "Tom Cruise",
+    "email": "tom@gmail.com",
+    "price": 47,
+    "description": "Master the basics of Advanced Database and Management System and improve user experience across platforms.",
+    "image": "https://assets.datamation.com/uploads/2023/06/dm-top-database-challenges-696x457.png"
   }
 ]

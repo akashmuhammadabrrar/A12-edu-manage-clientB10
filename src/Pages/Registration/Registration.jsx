@@ -3,8 +3,10 @@ import { data, Link, useNavigate } from "react-router-dom";
 import { authContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 import SocialLogin from "../../components/SocialLogin/SocialLogin";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 
 const Registration = () => {
+  const axiosPublic = useAxiosPublic();
   const { createUser, updateUserProfile, setUser } = useContext(authContext);
   const navigate = useNavigate();
 
@@ -20,15 +22,26 @@ const Registration = () => {
       .then((result) => {
         const loggedUser = result.user;
         updateUserProfile(name, photo);
-        setUser(loggedUser);
-        form.reset();
-        navigate("/");
-        Swal.fire({
-          position: "top-end",
-          icon: "success",
-          title: "Login Successful",
-          showConfirmButton: false,
-          timer: 1500,
+        // create user entry in the database
+        const userInfo = {
+          name: name,
+          email: email,
+          photo: photo,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          if (res.data.insertedId) {
+            console.log("user added to the database");
+            setUser(loggedUser);
+            form.reset();
+            navigate("/");
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "Login Successful",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
         });
       })
       .catch((error) => {
