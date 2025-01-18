@@ -10,6 +10,22 @@ const TeachReqForm = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
+    // send data to the server
+    const teacherData = {
+      name: data.name,
+      email: data.email,
+      title: data.title,
+      image: data.image,
+      experience: data.categoryExp,
+      category: data.categorySkill,
+      status: "Pending",
+    };
+    console.table({ teacherData });
+    const teacherRes = await axiosSecure.post("/teacher-req", teacherData);
+    console.log(teacherRes.data);
+    if (teacherRes.data.insertedId) {
+      // show success popup
+    }
   };
 
   return (
@@ -79,22 +95,22 @@ const TeachReqForm = () => {
           {/* select for experience */}
           <div className="flex justify-center items-center gap-2 mt-4">
             <select
-              defaultValue="default"
-              {...register("categoryExp")}
+              defaultValue=""
+              {...register("categoryExp", { required: true })}
               className="select select-bordered w-full max-w-xs">
-              <option disabled selected>
+              <option disabled value="">
                 Select A Category
               </option>
-              <option value="Web Development">Experienced</option>
-              <option value="Digital Marketing">Beginner</option>
-              <option value="Graphics Design">Mid Level</option>
-              <option value="App Development">Junior</option>
+              <option value="Experienced">Experienced</option>
+              <option value="Beginner">Beginner</option>
+              <option value="Mid Level">Mid Level</option>
+              <option value="Junior">Junior</option>
             </select>
             <select
-              defaultValue="default"
+              defaultValue=""
               {...register("categorySkill")}
               className="select select-bordered w-full max-w-xs">
-              <option disabled selected>
+              <option disabled value="">
                 Select A Category
               </option>
               <option value="Web Development">Web Development</option>
