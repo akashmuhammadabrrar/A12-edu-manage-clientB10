@@ -2,12 +2,13 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const TeachReqForm = () => {
   const axiosSecure = useAxiosSecure();
 
   const { user } = useAuth();
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
     console.log(data);
     // send data to the server
@@ -25,6 +26,14 @@ const TeachReqForm = () => {
     console.log(teacherRes.data);
     if (teacherRes.data.insertedId) {
       // show success popup
+      reset();
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Login Successful",
+        showConfirmButton: false,
+        timer: 1500,
+      });
     }
   };
 

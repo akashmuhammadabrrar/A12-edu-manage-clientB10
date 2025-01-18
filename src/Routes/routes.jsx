@@ -9,6 +9,7 @@ import Privet from "../Pages/Privet/Privet";
 import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layouts/Dashboard";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
+import TeacherReq from "../Pages/Dashboard/TeacherReq/TeacherReq";
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const router = createBrowserRouter([
         element: <UserHome></UserHome>,
       },
       // admin routes
+      {
+        path: "/dashboard/teachersRequests",
+        element: <TeacherReq></TeacherReq>,
+      },
     ],
   },
 ]);

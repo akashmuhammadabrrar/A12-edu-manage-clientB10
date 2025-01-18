@@ -12,9 +12,9 @@ const Dashboard = () => {
   const isTeacher = true;
 
   return (
-    <div className="flex">
+    <div className="lg:flex lg:gap-4 ">
       {/* side bar */}
-      <div className=" min-h-full bg-gray-500">
+      <div className=" lg:w-1/4 bg-gray-500">
         <div className="drawer lg:drawer-open">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
           <div className="drawer-content flex flex-col items-start justify-center p-2">
@@ -41,7 +41,7 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/userHome">
+                    <NavLink to="/dashboard/teachersRequests">
                       <FaCodePullRequest className="text-xl" />
                       Teacher's Requests
                     </NavLink>
@@ -155,7 +155,7 @@ const Dashboard = () => {
         </div>
       </div>
       {/* dashboard content */}
-      <div>
+      <div className="lg:w-3/4">
         <Outlet></Outlet>
       </div>
     </div>
