@@ -53,7 +53,13 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/userHome">
+                    <NavLink to="/dashboard/allUsers">
+                      <FaBorderAll className="text-xl" />
+                      All Users
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/dashboard/profile">
                       <CgProfile className="text-xl" />
                       Profile
                     </NavLink>

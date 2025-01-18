@@ -1,5 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 const TeacherReq = () => {
@@ -23,8 +22,8 @@ const TeacherReq = () => {
       </div>
       <div className="">
         {/* table */}
-        <div className="overflow-x-auto w-full">
-          <table className="table">
+        <div className="overflow-x-auto">
+          <table className="table sm:ml-20 md:ml-20 lg:m-0">
             {/* head */}
             <thead>
               <tr>

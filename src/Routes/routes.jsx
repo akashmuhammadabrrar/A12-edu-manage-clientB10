@@ -10,6 +10,7 @@ import PrivetRoute from "./PrivetRoute";
 import Dashboard from "../Layouts/Dashboard";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import TeacherReq from "../Pages/Dashboard/TeacherReq/TeacherReq";
+import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ export const router = createBrowserRouter([
         element: <UserHome></UserHome>,
       },
       // admin routes
+      {
+        path: "/dashboard/allUsers",
+        element: <AllUsers></AllUsers>,
+      },
       {
         path: "/dashboard/teachersRequests",
         element: <TeacherReq></TeacherReq>,
