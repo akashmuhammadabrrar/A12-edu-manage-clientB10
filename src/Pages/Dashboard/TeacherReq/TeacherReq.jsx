@@ -1,16 +1,34 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 const TeacherReq = () => {
   const axiosSecure = useAxiosSecure();
-  const { data: teacherReq = [] } = useQuery({
+  const { data: teacherReq = [], refetch } = useQuery({
     queryKey: ["teacher-req"],
     queryFn: async () => {
       const res = await axiosSecure.get("/teacher-req");
       return res.data;
     },
   });
-  console.table({ teacherReq });
+  const teacherEmail = teacherReq.map((teacher) => teacher.email);
+  // console.log({ teacherEmail });
+
+  const handleTeacher = (req) => {
+    axiosSecure.patch(`/teacher-req/teacher/${req._id}`).then((res) => {
+      console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${req.name} is a Teacher Now!`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
+  };
 
   return (
     <div>
@@ -62,11 +80,17 @@ const TeacherReq = () => {
                   <td>
                     <div>{req.category}</div>
                   </td>
-                  <td>{req.status}</td>
+                  <td>{req.role === "teacher" ? "Teacher" : req.status}</td>
                   <td>
-                    <button className="btn btn-sm text-white bg-green-600">
-                      Approve
-                    </button>
+                    {req.role === "teacher" ? (
+                      "Teacher"
+                    ) : (
+                      <button
+                        onClick={() => handleTeacher(req)}
+                        className="btn btn-sm text-white bg-green-600">
+                        Approve
+                      </button>
+                    )}
                   </td>
                   <td>
                     <button className="btn btn-sm text-white bg-error">

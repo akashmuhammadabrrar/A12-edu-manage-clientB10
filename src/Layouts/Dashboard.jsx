@@ -6,11 +6,17 @@ import { IoHome } from "react-icons/io5";
 import { MdAddToPhotos, MdClass } from "react-icons/md";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useMakeTeacher from "../hooks/useMakeTeacher";
 
 const Dashboard = () => {
   // todo: getAdmin value from the database
-  const [isAdmin] = useAdmin();
-  const isTeacher = true;
+  const [isAdmin, isAdminLoading] = useAdmin();
+  // const isTeacher = true;
+  const [isTeacher] = useMakeTeacher();
+  console.log(isTeacher);
+  // if (isTeacherPending || isAdminLoading) {
+  //   return <div>Dashboard Loading...</div>;
+  // }
 
   return (
     <div className="lg:flex lg:gap-4 ">
@@ -36,6 +42,11 @@ const Dashboard = () => {
               {/* Admin Dashboard */}
               {isAdmin ? (
                 <>
+                  <li>
+                    <NavLink to="/">
+                      <IoHome className="text-xl" /> Home
+                    </NavLink>
+                  </li>
                   <li>
                     <NavLink to="/dashboard/userHome">
                       <IoHome className="text-xl" /> Admin Home
@@ -68,95 +79,61 @@ const Dashboard = () => {
                 </>
               ) : (
                 <>
-                  <li>
-                    <NavLink to="/dashboard/userHome">
-                      <IoHome className="text-xl" /> Admin Home
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/userHome">
-                      <FaCodePullRequest className="text-xl" />
-                      Teacher's Requests
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/userHome">
-                      <FaBorderAll className="text-xl" />
-                      All Classes
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/userHome">
-                      <CgProfile className="text-xl" />
-                      Profile
-                    </NavLink>
-                  </li>
+                  {isTeacher ? (
+                    <>
+                      <li>
+                        <NavLink to="/">
+                          {" "}
+                          <IoHome className="text-xl" /> Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/">
+                          {" "}
+                          <IoHome className="text-xl" /> Teacher Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/addClass">
+                          {" "}
+                          <MdAddToPhotos className="text-xl" />
+                          Add Class
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/">
+                          <CgProfile className="text-xl" /> Teacher Profile
+                        </NavLink>
+                      </li>
+                    </>
+                  ) : (
+                    <>
+                      {/* student dashboard */}
+                      <li>
+                        <NavLink to="/">
+                          {" "}
+                          <IoHome className="text-xl" /> User Home
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/">
+                          <MdClass className="text-xl" />
+                          My Enrollment Class
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/">
+                          <CgProfile className="text-xl" /> Profile
+                        </NavLink>
+                      </li>
+                      <div className="divider"></div>
+                    </>
+                  )}
                 </>
               )}
               <div className="divider"></div>
-              {/* student dashboard */}
-              <li>
-                <NavLink to="/">
-                  {" "}
-                  <IoHome className="text-xl" /> User Home
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/">
-                  <MdClass className="text-xl" />
-                  My Enrollment Class
-                </NavLink>
-              </li>
-              <li>
-                <NavLink to="/dashboard/">
-                  <CgProfile className="text-xl" /> Profile
-                </NavLink>
-              </li>
-              <div className="divider"></div>
+
               {/* teacher's dashboard */}
-              {isTeacher ? (
-                <>
-                  <li>
-                    <NavLink to="/dashboard/">
-                      {" "}
-                      <IoHome className="text-xl" /> Teacher Home
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/">
-                      {" "}
-                      <MdAddToPhotos className="text-xl" />
-                      Add Class
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/">
-                      <CgProfile className="text-xl" /> Teacher Profile
-                    </NavLink>
-                  </li>
-                </>
-              ) : (
-                <>
-                  <li>
-                    <NavLink to="/dashboard/">
-                      {" "}
-                      <IoHome className="text-xl" /> Teacher Home
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/">
-                      {" "}
-                      <MdAddToPhotos className="text-xl" />
-                      Add Class
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/dashboard/">
-                      <CgProfile className="text-xl" /> Teacher Profile
-                    </NavLink>
-                  </li>
-                </>
-              )}
             </ul>
           </div>
         </div>

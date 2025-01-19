@@ -11,6 +11,7 @@ import Dashboard from "../Layouts/Dashboard";
 import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import TeacherReq from "../Pages/Dashboard/TeacherReq/TeacherReq";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
+import AddClassTeach from "../Pages/Dashboard/AddClassTeach/AddClassTeach";
 
 export const router = createBrowserRouter([
   {
@@ -70,6 +71,11 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/teachersRequests",
         element: <TeacherReq></TeacherReq>,
+      },
+      // teacher's routes
+      {
+        path: "/dashboard/addClass",
+        element: <AddClassTeach></AddClassTeach>,
       },
     ],
   },
