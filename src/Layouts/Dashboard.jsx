@@ -59,9 +59,9 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/userHome">
+                    <NavLink to="/dashboard/allClassReq">
                       <FaBorderAll className="text-xl" />
-                      All Classes
+                      All Classes Req
                     </NavLink>
                   </li>
                   <li>

@@ -12,6 +12,7 @@ import UserHome from "../Pages/Dashboard/UserHome/UserHome";
 import TeacherReq from "../Pages/Dashboard/TeacherReq/TeacherReq";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
 import AddClassTeach from "../Pages/Dashboard/AddClassTeach/AddClassTeach";
+import ClassRequests from "../Pages/Dashboard/ClassRequests/ClassRequests";
 
 export const router = createBrowserRouter([
   {
@@ -66,11 +67,19 @@ export const router = createBrowserRouter([
       // admin routes
       {
         path: "/dashboard/allUsers",
-        element: <AllUsers></AllUsers>,
+        element: (
+          <PrivetRoute>
+            <AllUsers></AllUsers>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/dashboard/teachersRequests",
         element: <TeacherReq></TeacherReq>,
+      },
+      {
+        path: "/dashboard/allClassReq",
+        element: <ClassRequests></ClassRequests>,
       },
       // teacher's routes
       {

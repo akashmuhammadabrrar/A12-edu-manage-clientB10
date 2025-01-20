@@ -2,7 +2,8 @@ import React from "react";
 
 const ClassCard = ({ item }) => {
   const { name, image, price, title, description } = item;
-  console.table({ name, image, price, title, description });
+  // console.table({ name, image, price, title, description });
+  console.log(item.status === "approve");
 
   return (
     <div>

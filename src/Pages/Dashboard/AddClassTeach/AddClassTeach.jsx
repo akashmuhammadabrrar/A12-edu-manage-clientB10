@@ -10,25 +10,34 @@ const AddClassTeach = () => {
   const axiosSecure = useAxiosSecure();
 
   const onSubmit = async (data) => {
+    const image = data.image;
     console.log(data);
     // // send data to the server
-    // const teacherData = {
-    // };
-    // console.table({ teacherData })
+    const classInfo = {
+      name: user?.displayName,
+      email: user?.email,
+      image: image,
+      price: data.price,
+      title: data.title,
+      experience: data.experience,
+      description: data.description,
+      status: "Pending",
+    };
+    console.table({ classInfo });
     // -------------
-    // const teacherRes = await axiosSecure.post("/teacher-req", teacherData);
-    // console.log(teacherRes.data);
-    // if (teacherRes.data.insertedId) {
-    //   // show success popup
-    //   reset();
-    //   Swal.fire({
-    //     position: "top-end",
-    //     icon: "success",
-    //     title: "Class Added Successfully",
-    //     showConfirmButton: false,
-    //     timer: 1500,
-    //   });
-    // }
+    const teacherRes = await axiosSecure.post(`/classes`, classInfo);
+    console.log(teacherRes.data);
+    if (teacherRes.data.insertedId) {
+      // show success popup
+      reset();
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Class Added Successfully",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    }
   };
 
   return (
@@ -108,6 +117,20 @@ const AddClassTeach = () => {
               className="input input-bordered w-full max-w-xs"
             />
           </label>
+        </div>
+        <div className="flex justify-center items-center mt-4">
+          <select
+            defaultValue=""
+            {...register("experience", { required: true })}
+            className="select select-bordered w-full max-w-xs">
+            <option disabled value="">
+              Select A Category
+            </option>
+            <option value="Experienced">Experienced</option>
+            <option value="Beginner">Beginner</option>
+            <option value="Mid Level">Mid Level</option>
+            <option value="Junior">Junior</option>
+          </select>
         </div>
         <div className="flex justify-center ">
           <input
