@@ -113,7 +113,7 @@ const ClassRequests = () => {
                     <button
                       onClick={() => handleUpdateApprove(item)}
                       className="btn btn-success btn-xs"
-                      disabled={item.status === "approve" ? true : false}>
+                      disabled={item.status !== "Pending" ? true : false}>
                       Approve
                     </button>
                   </th>
@@ -121,7 +121,7 @@ const ClassRequests = () => {
                     <button
                       onClick={() => handleUpdateReject(item)}
                       className="btn btn-error btn-xs"
-                      disabled={item.status === "rejected" ? true : false}>
+                      disabled={item.status !== "Pending" ? true : false}>
                       Reject
                     </button>
                   </th>

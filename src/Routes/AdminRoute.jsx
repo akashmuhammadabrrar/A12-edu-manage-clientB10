@@ -15,7 +15,7 @@ const AdminRoute = ({ children }) => {
       </div>
     );
   }
-  if (user && isAdmin) {
+  if (user || isAdmin) {
     return children;
   }
 

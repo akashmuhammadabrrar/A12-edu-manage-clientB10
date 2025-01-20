@@ -85,11 +85,11 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="btn btn-ghost text-2xl text-white font-bold">
+        <Link to="/" className="btn btn-ghost text-2xl text-white font-bold">
           <span className="text-green-400  font-bold">ED</span>
           <img className="w-8" src={logo} alt="" />
           <span className="text-blue-600">Manage</span>
-        </a>
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-white font-bold">

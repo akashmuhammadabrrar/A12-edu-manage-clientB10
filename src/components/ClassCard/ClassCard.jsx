@@ -1,6 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { useQuery } from "@tanstack/react-query";
 
 const ClassCard = ({ item }) => {
+  const axiosSecure = useAxiosSecure();
+  const { data: ClassDetail } = useQuery({
+    queryKey: [item._id, "class"],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/classes/${item._id}`);
+      return res.data;
+    },
+  });
+
+  // show class on the ui
   const { name, image, price, title, description } = item;
   // console.table({ name, image, price, title, description });
   console.log(item.status === "approve");
@@ -26,7 +39,9 @@ const ClassCard = ({ item }) => {
             <span className="font-bold">Price:</span> {price} $
           </p>
           <div className="card-actions">
-            <button className="btn btn-info">Enroll Now</button>
+            <Link to={`/classDetail/${item._id}`}>
+              <button className="btn btn-info">Enroll Now</button>
+            </Link>
           </div>
         </div>
       </div>
