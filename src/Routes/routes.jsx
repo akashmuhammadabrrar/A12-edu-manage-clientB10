@@ -15,14 +15,14 @@ import AddClassTeach from "../Pages/Dashboard/AddClassTeach/AddClassTeach";
 import ClassRequests from "../Pages/Dashboard/ClassRequests/ClassRequests";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import MyEnroll from "../Pages/MyEnroll/MyEnroll";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: (
-      <h2 className="text-3xl text-center mt-56">404 Page Not Found</h2>
-    ),
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -99,6 +99,12 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addClass",
         element: <AddClassTeach></AddClassTeach>,
+      },
+
+      // ---------------
+      {
+        path: "/dashboard/myEnroll",
+        element: <MyEnroll></MyEnroll>,
       },
     ],
   },

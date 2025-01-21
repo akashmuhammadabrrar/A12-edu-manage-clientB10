@@ -5,6 +5,8 @@ import HighlightClasses from "./HighlightClasses/HighlightClasses.jsx";
 import FeedBackSection from "./FeedBackSection/FeedBackSection.jsx";
 import BecomeATeacher from "./BecomeATeacher/BecomeATeacher.jsx";
 import CourseStats from "./CourseStats/CourseStats.jsx";
+import ExtraA from "../ExtraA/ExtraA.jsx";
+import ExtraB from "../ExtraB/ExtraB.jsx";
 
 const Home = () => {
   return (
@@ -21,6 +23,10 @@ const Home = () => {
       <BecomeATeacher></BecomeATeacher>
       {/* course stats(total user,total class etc) */}
       <CourseStats></CourseStats>
+      {/* extra A */}
+      <ExtraA></ExtraA>
+      {/* extra- B */}
+      <ExtraB></ExtraB>
     </div>
   );
 };

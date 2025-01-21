@@ -1,10 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const ClassDetails = () => {
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
   const { id } = useParams();
   console.log(id);
 
@@ -20,6 +21,12 @@ const ClassDetails = () => {
     },
   });
   console.log(classDetail);
+
+  const handlePurchase = (classDetail) => {
+    navigate("/payment", {
+      state: { classDetail },
+    });
+  };
 
   const { name, image, price, title, description } = classDetail || {};
 
@@ -57,9 +64,15 @@ const ClassDetails = () => {
         </div>
       </div>
       <div className="flex justify-center items-center mt-6 w-1/2 mx-auto">
-        <Link className="w-full" to="/payment">
-          <button className="btn btn-info w-full">Pay Now</button>
-        </Link>
+        {/* <Link
+          className="w-full"
+          to={{ pathname: "/payment", state: { classDetail } }}>
+        </Link> */}
+        <button
+          onClick={() => handlePurchase(classDetail)}
+          className="btn btn-info w-full">
+          Pay Now
+        </button>
       </div>
     </div>
   );

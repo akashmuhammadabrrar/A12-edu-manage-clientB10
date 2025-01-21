@@ -7,15 +7,16 @@ import useCourse from "../../../hooks/useCourse";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 
 const CourseStats = () => {
-  // const axiosSecure = useAxiosSecure();
-  // const axiosPublic = useAxiosPublic();
-  // const { data: users = [], refetch } = useQuery({
-  //   queryKey: ["users"],
-  //   queryFn: async () => {
-  //     const res = await axiosPublic.get("/users");
-  //     return res.data;
-  //   },
-  // });
+  const axiosSecure = useAxiosSecure();
+  const axiosPublic = useAxiosPublic();
+  const { data: users = [], refetch } = useQuery({
+    queryKey: ["users"],
+    queryFn: async () => {
+      const res = await axiosPublic.get("/api/user-count");
+      return res.data;
+    },
+  });
+  console.log(users);
 
   // all classes
   const [course] = useCourse();
@@ -30,7 +31,7 @@ const CourseStats = () => {
           <div className="stats stats-vertical lg:stats-horizontal shadow">
             <div className="stat">
               <div className="stat-title">Total Users</div>
-              <div className="stat-value">15</div>
+              <div className="stat-value">{users.count}</div>
             </div>
 
             <div className="stat">
