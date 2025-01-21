@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { FaUsers } from "react-icons/fa";
@@ -6,14 +6,16 @@ import Swal from "sweetalert2";
 
 const AllUsers = () => {
   const axiosSecure = useAxiosSecure();
+  const [user, setUser] = useState([]);
   const { data: users = [], refetch } = useQuery({
     queryKey: ["users"],
     queryFn: async () => {
       const res = await axiosSecure.get("/users");
+      setUser(res.data);
       return res.data;
     },
   });
-  console.log(users);
+  console.log(user);
   // make admin handler
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
@@ -77,7 +79,7 @@ const AllUsers = () => {
               </tr>
             </thead>
             <tbody>
-              {users.map((user, idx) => (
+              {user?.map((user, idx) => (
                 <tr key={user._id}>
                   <th>{idx + 1}</th>
                   <td>
