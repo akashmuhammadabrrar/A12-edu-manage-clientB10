@@ -122,7 +122,7 @@ const Dashboard = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to="/dashboard/">
+                        <NavLink to="/dashboard/studentProf">
                           <CgProfile className="text-xl" /> Profile
                         </NavLink>
                       </li>

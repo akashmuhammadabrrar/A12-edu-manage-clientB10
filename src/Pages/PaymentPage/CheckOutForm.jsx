@@ -2,13 +2,15 @@ import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import React, { useEffect, useState } from "react";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAuth from "../../hooks/useAuth";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const CheckOutForm = () => {
   const [error, setError] = useState("");
   const [transactionId, setTransactionId] = useState("");
   const { user } = useAuth();
   const [clientSecret, setClientSecret] = useState("");
+  const navigate = useNavigate();
   const stripe = useStripe();
   const axiosSecure = useAxiosSecure();
   const elements = useElements();
@@ -21,7 +23,7 @@ const CheckOutForm = () => {
   console.log(price);
 
   useEffect(() => {
-    if (price > 0) {
+    if (classDetail && price > 0) {
       axiosSecure
         .post(`/create-payment-intent/${classDetail?._id}`, {
           price: price * 100,
@@ -75,6 +77,23 @@ const CheckOutForm = () => {
       if (paymentIntent.status === "succeeded") {
         console.log(paymentIntent.id, "Transaction Id");
         setTransactionId(paymentIntent.id);
+        Swal.fire({
+          title: "Success!",
+          text: "Payment Successful",
+          icon: "success",
+        });
+        navigate("/dashboard/myEnroll");
+
+        // now save the payment in the data base
+        const payment = {
+          email: user?.email,
+          price: price,
+          transactionId: paymentIntent.id,
+          date: new Date(),
+          myClass: classDetail,
+        };
+        const res = await axiosSecure.post("/payments", payment);
+        console.log(res.data, "payment saved");
       }
     }
   };

@@ -17,6 +17,7 @@ import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyEnroll from "../Pages/MyEnroll/MyEnroll";
+import StudentProf from "../Pages/studentProf/StudentProf";
 
 export const router = createBrowserRouter([
   {
@@ -105,6 +106,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/myEnroll",
         element: <MyEnroll></MyEnroll>,
+      },
+      {
+        path: "/dashboard/studentProf",
+        element: <StudentProf></StudentProf>,
       },
     ],
   },
