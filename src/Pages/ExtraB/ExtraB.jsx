@@ -6,31 +6,31 @@ import { SiGooglemarketingplatform } from "react-icons/si";
 
 const ExtraB = () => {
   return (
-    <div>
+    <div className="w-9/12 mx-auto">
       <h2 className="text-3xl text-center my-6">We Providing That Courses</h2>
 
-      <div className="flex justify-center items-center gap-4 flex-wrap">
-        <div className="w-1/5 p-4 h-24 bg-gray-200 rounded-md">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 items-center gap-4 ">
+        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
           <p className="font-bold text-xl">Graphics Designing</p>
           <IoIosColorPalette className="text-xl" />
         </div>
-        <div className="w-1/5 p-4 h-24 bg-gray-200 rounded-md">
+        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
           <p className="font-bold text-xl">Digital Marketing</p>
           <SiGooglemarketingplatform />
         </div>
-        <div className="w-1/5 p-4 h-24 bg-gray-200 rounded-md">
+        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
           <p className="font-bold text-xl">SEO Development </p>
           <IoBriefcaseOutline />
         </div>
-        <div className="w-1/5 p-4 h-24 bg-gray-200 rounded-md">
+        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
           <p className="font-bold text-xl">App Development </p>
           <FaAppStore />
         </div>
-        <div className="w-1/5 p-4 h-24 bg-gray-200 rounded-md">
+        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
           <p className="font-bold text-xl">Game Development</p>
           <IoGameControllerSharp />
         </div>
-        <div className="w-1/5 p-4 h-24 bg-gray-200 rounded-md">
+        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
           <p className="font-bold text-xl">UI/Ux Designing</p>
           <FaAcquisitionsIncorporated />
         </div>

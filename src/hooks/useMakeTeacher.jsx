@@ -20,10 +20,10 @@ const useMakeTeacher = () => {
     },
   });
 
-  console.log("isTeacher:", isTeacher);
-  console.log("isTeacherPending:", isTeacherPending);
-  console.log("teacherEmail:", user);
-  console.log("Fetch error:", error);
+  // console.log("isTeacher:", isTeacher);
+  // console.log("isTeacherPending:", isTeacherPending);
+  // console.log("teacherEmail:", user);
+  // console.log("Fetch error:", error);
 
   return [isTeacher, isTeacherPending];
 };

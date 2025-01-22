@@ -21,14 +21,20 @@ const CourseStats = () => {
 
   // all classes
   const [course] = useCourse();
-  console.log(course);
+  // console.log(course);
   const approvedCourses = course.filter((item) => item.status === "approve");
-
+  // console.log(approvedCourses);
+  const enrollments = approvedCourses.map((course) => course.enroll);
+  const totalEnrollments = enrollments.reduce(
+    (sum, enrollment) => sum + enrollment,
+    0
+  );
+  // console.log(totalEnrollments);
   return (
     <div className="mt-16">
       <div className="hero bg-base-200 min-h-[260px]">
         <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">
-          <img src={statImg} className="max-w-sm rounded-lg shadow-2xl" />
+          <img src={statImg} className="max-w-sm rounded-lg w-1/2 shadow-2xl" />
           <div className="stats stats-vertical lg:stats-horizontal shadow">
             <div className="stat">
               <div className="stat-title">Total Users</div>
@@ -42,7 +48,7 @@ const CourseStats = () => {
 
             <div className="stat">
               <div className="stat-title">Total Enrollments</div>
-              <div className="stat-value">1,200</div>
+              <div className="stat-value">{totalEnrollments}</div>
             </div>
           </div>
         </div>

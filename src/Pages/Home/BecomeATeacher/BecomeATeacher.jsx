@@ -7,9 +7,12 @@ const BecomeATeacher = () => {
     <div>
       <div className="hero bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src={teacherImg} className="max-w-sm rounded-lg shadow-2xl" />
+          <img
+            src={teacherImg}
+            className="max-w-sm w-1/5 rounded-lg shadow-2xl"
+          />
           <div>
-            <h1 className="text-5xl font-bold">
+            <h1 className="text-4xl font-bold">
               Become A Teacher To This Platform
             </h1>
             <p className="py-6 text-xl font-semibold text-slate-600">

@@ -15,11 +15,11 @@ const AllUsers = () => {
       return res.data;
     },
   });
-  console.log(user);
+  // console.log(user);
   // make admin handler
   const handleMakeAdmin = (user) => {
     axiosSecure.patch(`/users/admin/${user._id}`).then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       if (res.data.modifiedCount > 0) {
         refetch();
         Swal.fire({

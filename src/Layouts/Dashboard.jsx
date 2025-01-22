@@ -13,7 +13,7 @@ const Dashboard = () => {
   const [isAdmin, isAdminLoading] = useAdmin();
   // const isTeacher = true;
   const [isTeacher] = useMakeTeacher();
-  console.log(isTeacher);
+  // console.log(isTeacher);
   // if (isTeacherPending || isAdminLoading) {
   //   return <div>Dashboard Loading...</div>;
   // }
@@ -71,7 +71,7 @@ const Dashboard = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="/dashboard/profile">
+                    <NavLink to="/dashboard/studentProf">
                       <CgProfile className="text-xl" />
                       Profile
                     </NavLink>
@@ -101,7 +101,14 @@ const Dashboard = () => {
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to="/dashboard/">
+                        <NavLink to="/dashboard/myAddedClass">
+                          {" "}
+                          <MdAddToPhotos className="text-xl" />
+                          My Added Class
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/dashboard/studentProf">
                           <CgProfile className="text-xl" /> Teacher Profile
                         </NavLink>
                       </li>

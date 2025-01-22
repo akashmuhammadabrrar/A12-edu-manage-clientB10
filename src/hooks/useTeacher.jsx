@@ -13,7 +13,7 @@ const useTeacher = () => {
     },
   });
   const teacherEmail = teacherReqA.map((teacher) => teacher.email);
-  console.log(teacherEmail);
+  // console.log(teacherEmail);
   return [teacherEmail];
 };
 

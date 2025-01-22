@@ -11,7 +11,7 @@ const AddClassTeach = () => {
 
   const onSubmit = async (data) => {
     const image = data.image;
-    console.log(data);
+    // console.log(data);
     // // send data to the server
     const classInfo = {
       name: user?.displayName,
@@ -25,8 +25,11 @@ const AddClassTeach = () => {
     };
     console.table({ classInfo });
     // -------------
-    const teacherRes = await axiosSecure.post(`/classes`, classInfo);
-    console.log(teacherRes.data);
+    const teacherRes = await axiosSecure.post(
+      `http://localhost:5000`,
+      classInfo
+    );
+    // console.log(teacherRes.data);
     if (teacherRes.data.insertedId) {
       // show success popup
       reset();

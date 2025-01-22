@@ -17,7 +17,7 @@ const Registration = () => {
     const name = form.name.value;
     const password = form.password.value;
     const photo = form.photo.value;
-    console.table({ email, password, name, photo });
+    // console.table({ email, password, name, photo });
     createUser(email, password)
       .then((result) => {
         const loggedUser = result.user;
@@ -30,7 +30,7 @@ const Registration = () => {
         };
         axiosPublic.post("/users", userInfo).then((res) => {
           if (res.data.insertedId) {
-            console.log("user added to the database");
+            // console.log("user added to the database");
             setUser(loggedUser);
             form.reset();
             navigate("/");
@@ -45,7 +45,7 @@ const Registration = () => {
         });
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   };
 

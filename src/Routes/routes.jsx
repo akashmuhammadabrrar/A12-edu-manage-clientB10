@@ -18,6 +18,8 @@ import PaymentPage from "../Pages/PaymentPage/PaymentPage";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import MyEnroll from "../Pages/MyEnroll/MyEnroll";
 import StudentProf from "../Pages/studentProf/StudentProf";
+import MyAddedClass from "../Pages/TeachingRequestForm/MyAddedClass/MyAddedClass";
+import UpdateClass from "../Pages/updateClass/UpdateClass";
 
 export const router = createBrowserRouter([
   {
@@ -31,7 +33,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/teacherReq",
-        element: <TeachReqForm></TeachReqForm>,
+        element: (
+          <PrivetRoute>
+            <TeachReqForm></TeachReqForm>
+          </PrivetRoute>
+        ),
       },
       {
         path: "/allClasses",
@@ -59,7 +65,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/classDetail/:id",
-        element: <ClassDetails></ClassDetails>,
+        element: (
+          <PrivetRoute>
+            <ClassDetails></ClassDetails>
+          </PrivetRoute>
+        ),
       },
     ],
   },
@@ -100,6 +110,14 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/addClass",
         element: <AddClassTeach></AddClassTeach>,
+      },
+      {
+        path: "/dashboard/myAddedClass",
+        element: <MyAddedClass></MyAddedClass>,
+      },
+      {
+        path: "/dashboard/updateClass/:id",
+        element: <UpdateClass></UpdateClass>,
       },
 
       // ---------------

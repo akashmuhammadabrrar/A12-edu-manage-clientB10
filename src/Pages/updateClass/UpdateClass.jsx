@@ -1,36 +1,37 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import Swal from "sweetalert2";
+import { useParams } from "react-router-dom";
 
-const TeachReqForm = () => {
+const UpdateClass = () => {
+  const { user } = useAuth();
+  const { id } = useParams();
+  console.log(id);
+  const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxiosSecure();
 
-  const { user } = useAuth();
-  const { register, handleSubmit, reset } = useForm();
   const onSubmit = async (data) => {
-    // console.log(data);
-    // send data to the server
-    const teacherData = {
-      name: data.name,
-      email: data.email,
+    const image = data.image;
+    console.log(data);
+    // // send data to the server
+    const updateInfo = {
+      image: image,
+      price: data.price,
       title: data.title,
-      image: data.image,
-      experience: data.categoryExp,
-      category: data.categorySkill,
-      status: "Pending",
+      description: data.description,
     };
-    // console.table({ teacherData });
-    const teacherRes = await axiosSecure.post("/teacher-req", teacherData);
-    // console.log(teacherRes.data);
-    if (teacherRes.data.insertedId) {
+    console.table({ updateInfo });
+    // -------------
+    const teacherRes = await axiosSecure.put(`/classes/${id}`, updateInfo);
+    console.log(teacherRes.data);
+    if (teacherRes.data.modifiedCount > 0) {
       // show success popup
       reset();
       Swal.fire({
         position: "top-end",
         icon: "success",
-        title: "Login Successful",
+        title: "Class Updated Successfully",
         showConfirmButton: false,
         timer: 1500,
       });
@@ -39,21 +40,25 @@ const TeachReqForm = () => {
 
   return (
     <div>
-      <h2 className="text-3xl text-center my-6">
-        Request For To Become A Teacher
-      </h2>
-
-      <div className="bg-gray-200 w-full min-h-screen p-10">
+      <h2 className="text-3xl text-center my-6">Here We Update The Class</h2>
+      <div className="flex justify-center items-center my-6 ml-16">
+        <button className="btn btn-primary btn-wide font-bold">
+          Feed Back
+        </button>
+      </div>
+      {/* update form */}
+      <div>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex justify-center items-center gap-2">
             {/* email */}
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">What is your name?</span>
+                <span className="label-text">My Name Is</span>
               </div>
               <input
                 {...register("name")}
                 defaultValue={user?.displayName}
+                readOnly
                 type="text"
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-xs"
@@ -62,7 +67,7 @@ const TeachReqForm = () => {
             {/* name */}
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">Your Email</span>
+                <span className="label-text">My Email Address</span>
               </div>
               <input
                 {...register("email")}
@@ -87,25 +92,39 @@ const TeachReqForm = () => {
                 className="input input-bordered w-full max-w-xs"
               />
             </label>
-            {/* photo url */}
+            {/* price */}
             <label className="form-control w-full max-w-xs">
               <div className="label">
-                <span className="label-text">Your Photo Url</span>
+                <span className="label-text">Give The Price</span>
               </div>
               <input
-                {...register("image")}
-                defaultValue={user?.photoURL}
-                type="text"
+                {...register("price")}
+                type="number"
                 placeholder="Type here"
                 className="input input-bordered w-full max-w-xs"
               />
             </label>
           </div>
-          {/* select for experience */}
+          {/* Description   */}
           <div className="flex justify-center items-center gap-2 mt-4">
+            <textarea
+              {...register("description")}
+              placeholder="Description"
+              className="textarea textarea-bordered font-bold textarea-xs w-full max-w-xs"></textarea>
+            {/* photo url */}
+            <label className="form-control w-full max-w-xs">
+              <input
+                {...register("image")}
+                type="text"
+                placeholder="Photo url of class"
+                className="input input-bordered w-full max-w-xs"
+              />
+            </label>
+          </div>
+          <div className="flex justify-center items-center mt-4">
             <select
               defaultValue=""
-              {...register("categoryExp", { required: true })}
+              {...register("experience", { required: true })}
               className="select select-bordered w-full max-w-xs">
               <option disabled value="">
                 Select A Category
@@ -115,26 +134,12 @@ const TeachReqForm = () => {
               <option value="Mid Level">Mid Level</option>
               <option value="Junior">Junior</option>
             </select>
-            <select
-              defaultValue=""
-              {...register("categorySkill")}
-              className="select select-bordered w-full max-w-xs">
-              <option disabled value="">
-                Select A Category
-              </option>
-              <option value="Web Development">Web Development</option>
-              <option value="Digital Marketing">Digital Marketing</option>
-              <option value="Graphics Design">Graphics Design</option>
-              <option value="App Development">App Development</option>
-              <option value="Game Development">Game Development</option>
-              <option value="SEO Development">SEO Development</option>
-            </select>
           </div>
           <div className="flex justify-center ">
             <input
               className="btn btn-accent btn-wide mt-4 "
               type="submit"
-              value="Submit For Review"
+              value="Update Class"
             />
           </div>
         </form>
@@ -143,4 +148,4 @@ const TeachReqForm = () => {
   );
 };
 
-export default TeachReqForm;
+export default UpdateClass;

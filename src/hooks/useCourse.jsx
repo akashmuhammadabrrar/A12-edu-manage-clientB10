@@ -11,7 +11,7 @@ const useCourse = () => {
   } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axiosPublic.get("/classes");
+      const res = await axiosPublic.get("http://localhost:5000");
       return res.data;
     },
   });

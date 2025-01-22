@@ -4,7 +4,7 @@ import ClassCard from "../../components/ClassCard/ClassCard";
 
 const AllClasses = () => {
   const [course] = useCourse();
-  console.log(course);
+  // console.log(course);
   const approvedCourses = course.filter((item) => item.status === "approve");
   return (
     <div>

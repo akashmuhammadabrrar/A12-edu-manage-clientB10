@@ -7,7 +7,7 @@ const ClassDetails = () => {
   const axiosSecure = useAxiosSecure();
   const navigate = useNavigate();
   const { id } = useParams();
-  console.log(id);
+  // console.log(id);
 
   const {
     data: classDetail,
@@ -16,7 +16,7 @@ const ClassDetails = () => {
   } = useQuery({
     queryKey: ["classDetail", id],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/classes/${id}`);
+      const res = await axiosSecure.get(`http://localhost:5000/${id}`);
       return res.data;
     },
   });

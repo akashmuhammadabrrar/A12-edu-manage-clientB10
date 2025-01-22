@@ -19,8 +19,8 @@ const CheckOutForm = () => {
   const { classDetail } = location.state || {};
 
   const price = parseInt(classDetail.price);
-  console.log(classDetail, "class details");
-  console.log(price);
+  // console.log(classDetail, "class details");
+  // console.log(price);
 
   useEffect(() => {
     if (classDetail && price > 0) {
@@ -29,7 +29,7 @@ const CheckOutForm = () => {
           price: price * 100,
         })
         .then((res) => {
-          console.log(res.data.clientSecret);
+          // console.log(res.data.clientSecret);
           setClientSecret(res.data.clientSecret);
         });
     }
@@ -52,10 +52,10 @@ const CheckOutForm = () => {
     });
 
     if (error) {
-      console.log(error.message, "payment error");
+      // console.log(error.message, "payment error");
       setError(error.message);
     } else {
-      console.log("payment method", paymentMethod);
+      // console.log("payment method", paymentMethod);
       setError("");
     }
 
@@ -71,11 +71,11 @@ const CheckOutForm = () => {
         },
       });
     if (confirmError) {
-      console.log("confirmError");
+      // console.log("confirmError");
     } else {
-      console.log("payment intent", paymentIntent);
+      // console.log("payment intent", paymentIntent);
       if (paymentIntent.status === "succeeded") {
-        console.log(paymentIntent.id, "Transaction Id");
+        // console.log(paymentIntent.id, "Transaction Id");
         setTransactionId(paymentIntent.id);
         Swal.fire({
           title: "Success!",
@@ -93,7 +93,7 @@ const CheckOutForm = () => {
           myClass: classDetail,
         };
         const res = await axiosSecure.post("/payments", payment);
-        console.log(res.data, "payment saved");
+        // console.log(res.data, "payment saved");
       }
     }
   };

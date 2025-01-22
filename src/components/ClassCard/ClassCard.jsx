@@ -8,7 +8,7 @@ const ClassCard = ({ item = {} }) => {
   const { data: ClassDetail } = useQuery({
     queryKey: [item._id, "class"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`/classes/${item._id}`);
+      const res = await axiosSecure.get(`http://localhost:5000/${item._id}`);
       return res.data;
     },
   });
@@ -16,7 +16,7 @@ const ClassCard = ({ item = {} }) => {
   // show class on the ui
   const { name, image, price, title, description, enroll } = item;
   // console.table({ name, image, price, title, description });
-  console.log(item.status === "approve");
+  // console.log(item.status === "approve");
 
   return (
     <div>
