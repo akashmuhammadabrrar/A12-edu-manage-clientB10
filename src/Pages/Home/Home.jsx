@@ -23,6 +23,8 @@ const Home = () => {
       <BecomeATeacher></BecomeATeacher>
       {/* course stats(total user,total class etc) */}
       <CourseStats></CourseStats>
+      {/* reviews */}
+
       {/* extra A */}
       <ExtraA></ExtraA>
       {/* extra- B */}

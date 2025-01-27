@@ -20,6 +20,8 @@ import MyEnroll from "../Pages/MyEnroll/MyEnroll";
 import StudentProf from "../Pages/studentProf/StudentProf";
 import MyAddedClass from "../Pages/TeachingRequestForm/MyAddedClass/MyAddedClass";
 import UpdateClass from "../Pages/updateClass/UpdateClass";
+import TeacherClassTask from "../Pages/TeachingRequestForm/TeacherClassTask/TeacherClassTask";
+import MyClassTasks from "../Pages/MyClassTask/MyClassTasks";
 
 export const router = createBrowserRouter([
   {
@@ -119,6 +121,10 @@ export const router = createBrowserRouter([
         path: "/dashboard/updateClass/:id",
         element: <UpdateClass></UpdateClass>,
       },
+      {
+        path: "/dashboard/teacherClassTask/:id",
+        element: <TeacherClassTask></TeacherClassTask>,
+      },
 
       // ---------------
       {
@@ -128,6 +134,10 @@ export const router = createBrowserRouter([
       {
         path: "/dashboard/studentProf",
         element: <StudentProf></StudentProf>,
+      },
+      {
+        path: "/dashboard/myAssignmentTasks/:id",
+        element: <MyClassTasks></MyClassTasks>,
       },
     ],
   },

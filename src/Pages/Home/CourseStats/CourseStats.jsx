@@ -22,14 +22,23 @@ const CourseStats = () => {
   // all classes
   const [course] = useCourse();
   // console.log(course);
-  const approvedCourses = course.filter((item) => item.status === "approve");
+  const approvedCourses = course?.filter((item) => item.status === "approve");
   // console.log(approvedCourses);
-  const enrollments = approvedCourses.map((course) => course.enroll);
+
+  // Mapping enrollments and filtering out non-numeric values
+  const enrollments = approvedCourses
+    .map((course) => course.enroll)
+    .filter(
+      (enrollment) => typeof enrollment === "number" && !isNaN(enrollment)
+    );
+
+  // Summing up valid enrollments
   const totalEnrollments = enrollments.reduce(
     (sum, enrollment) => sum + enrollment,
     0
   );
   // console.log(totalEnrollments);
+
   return (
     <div className="mt-16">
       <div className="hero bg-base-200 min-h-[260px]">

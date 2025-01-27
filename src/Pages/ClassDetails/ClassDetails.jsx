@@ -16,7 +16,7 @@ const ClassDetails = () => {
   } = useQuery({
     queryKey: ["classDetail", id],
     queryFn: async () => {
-      const res = await axiosSecure.get(`http://localhost:5000/${id}`);
+      const res = await axiosSecure.get(`/classes/${id}`);
       return res.data;
     },
   });

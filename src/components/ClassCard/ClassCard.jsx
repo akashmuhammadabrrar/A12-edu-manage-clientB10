@@ -5,10 +5,11 @@ import { useQuery } from "@tanstack/react-query";
 
 const ClassCard = ({ item = {} }) => {
   const axiosSecure = useAxiosSecure();
+
   const { data: ClassDetail } = useQuery({
     queryKey: [item._id, "class"],
     queryFn: async () => {
-      const res = await axiosSecure.get(`http://localhost:5000/${item._id}`);
+      const res = await axiosSecure.get(`/classes/${item._id}`);
       return res.data;
     },
   });

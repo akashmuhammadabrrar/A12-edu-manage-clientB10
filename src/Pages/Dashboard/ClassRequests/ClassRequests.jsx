@@ -15,7 +15,9 @@ const ClassRequests = () => {
   } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axiosPublic.get("http://localhost:5000");
+      const res = await axiosPublic.get(
+        "https://edu-manage-server-three.vercel.app/classes"
+      );
       return res.data;
     },
   });
@@ -29,22 +31,21 @@ const ClassRequests = () => {
       status: "approve",
     };
 
-    axiosSecure
-      .patch(`http://localhost:5000/${item._id}`, updateStats)
-      .then((res) => {
-        // console.log(res.data);
-        if (res.data.modifiedCount > 0) {
-          refetch();
-          Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: `${item.name} is Approved Now`,
-            showConfirmButton: false,
-            timer: 1500,
-          });
-        }
-      });
+    axiosSecure.patch(`/classes/${item._id}`, updateStats).then((res) => {
+      // console.log(res.data);
+      if (res.data.modifiedCount > 0) {
+        refetch();
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: `${item.name} is Approved Now`,
+          showConfirmButton: false,
+          timer: 1500,
+        });
+      }
+    });
   };
+  // reject stats
   const handleUpdateReject = (item) => {
     // console.log("rejecting item with _idL", item);
     const updateStatsR = {
@@ -52,7 +53,7 @@ const ClassRequests = () => {
     };
 
     axiosSecure
-      .patch(`http://localhost:5000/reject/${item._id}`, updateStatsR)
+      .patch(`/classes/reject/${item._id}`, updateStatsR)
       .then((res) => {
         // console.log(res.data);
         if (res.data.modifiedCount > 0) {
@@ -82,6 +83,7 @@ const ClassRequests = () => {
                 <th>#</th>
                 <th>Name & Image</th>
                 <th>Title</th>
+                <th>Detail</th>
                 <th>Experience</th>
                 <th>Status:-</th>
                 <th>Action:-</th>
@@ -110,6 +112,9 @@ const ClassRequests = () => {
                   </td>
                   <td>{item.title}</td>
                   <td>{item.experience}</td>
+                  <td>
+                    <button className="btn btn-xs btn-info">progress</button>
+                  </td>
                   <th>{item.status}</th>
                   <th>
                     <button

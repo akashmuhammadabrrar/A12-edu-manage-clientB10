@@ -19,7 +19,7 @@ const Dashboard = () => {
   // }
 
   return (
-    <div className="lg:flex lg:gap-4 ">
+    <div className="lg:flex lg:gap-4">
       {/* side bar */}
       <div className=" lg:w-1/4 bg-gray-500">
         <div className="drawer lg:drawer-open">

@@ -5,9 +5,10 @@ import ClassCard from "../../../components/ClassCard/ClassCard";
 
 const HighlightClasses = () => {
   const [course] = useCourse();
-  // console.log(course);
-  const approvedCourses = course.filter((item) => item.status === "approve");
-  const sliceCourse = approvedCourses.slice(0, 6);
+
+  const approvedCourses = course?.filter((item) => item.status === "approve");
+  const sortedCourses = approvedCourses?.sort((a, b) => b.enroll - a.enroll);
+  const sliceCourse = sortedCourses.slice(0, 6);
 
   return (
     <div>

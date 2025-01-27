@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
 
 const AddClassTeach = () => {
   const { user } = useAuth();
   const { register, handleSubmit, reset } = useForm();
   const axiosSecure = useAxiosSecure();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const image = data.image;
@@ -26,7 +28,7 @@ const AddClassTeach = () => {
     console.table({ classInfo });
     // -------------
     const teacherRes = await axiosSecure.post(
-      `http://localhost:5000`,
+      `https://edu-manage-server-three.vercel.app/classes`,
       classInfo
     );
     // console.log(teacherRes.data);
@@ -40,6 +42,7 @@ const AddClassTeach = () => {
         showConfirmButton: false,
         timer: 1500,
       });
+      navigate("/dashboard/myAddedClass");
     }
   };
 

@@ -11,7 +11,9 @@ const useCourse = () => {
   } = useQuery({
     queryKey: ["classes"],
     queryFn: async () => {
-      const res = await axiosPublic.get("http://localhost:5000");
+      const res = await axiosPublic.get(
+        "https://edu-manage-server-three.vercel.app/classes"
+      );
       return res.data;
     },
   });

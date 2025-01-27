@@ -23,6 +23,9 @@ const MyAddedClass = () => {
   return (
     <div>
       <h2 className="text-3xl text-center my-6">My Added Class:</h2>
+      <div className="flex justify-center items-center my-6">
+        <button className="btn btn-outline">Feed Back+</button>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2">
         {classes.map((item) => (
           <TeacherCard item={item} key={item._id}></TeacherCard>

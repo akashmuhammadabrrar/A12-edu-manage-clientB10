@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
+import { Link, useNavigate } from "react-router-dom";
 
 const MyEnroll = () => {
   const { user } = useAuth();
   const axiosSecure = useAxiosSecure();
   const [enrolledClasses, setEnrolledClasses] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.email) {
@@ -15,6 +17,12 @@ const MyEnroll = () => {
         .catch((error) => console.error("Error fetching enrollments:", error));
     }
   }, [user, axiosSecure]);
+
+  const handleAssignment = (enrollment) => {
+    navigate(`/dashboard/myAssignmentTasks/${enrollment._id}`, {
+      state: { enrollment },
+    });
+  };
 
   return (
     <div>
@@ -39,7 +47,15 @@ const MyEnroll = () => {
                     alt={enrollment.myClass.title}
                     className="w-32 h-32 object-cover rounded"
                   />
-                  <button className="btn btn-info btn-sm mt-24 ml-2">
+                  {/* <Link
+                    to={{
+                      pathname: ``,
+                      state: { enrollment },
+                    }}>
+                      </Link> */}
+                  <button
+                    onClick={() => handleAssignment(enrollment)}
+                    className="btn btn-info btn-sm mt-24 ml-2">
                     Continue
                   </button>
                 </div>
