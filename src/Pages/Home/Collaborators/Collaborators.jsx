@@ -15,7 +15,7 @@ import TitleSection from "../../../components/TitleSection/TitleSection";
 
 const Collaborators = () => {
   return (
-    <section className="">
+    <section className="max-w-screen-2xl mx-auto">
       <div className="my-6">
         <TitleSection
           heading={"Collaborate Our Team Around The World"}

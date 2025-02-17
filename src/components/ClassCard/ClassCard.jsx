@@ -21,7 +21,7 @@ const ClassCard = ({ item = {} }) => {
 
   return (
     <div>
-      <div className="card bg-base-100 w-full h-[500px] shadow-xl gap-4">
+      <div className="card bg-base-300 rounded w-[80%] mx-auto h-[500px] shadow-xl gap-4">
         <figure className="px-10 pt-10">
           <img src={image} alt="Shoes" className="rounded-xl w-72" />
         </figure>
@@ -33,7 +33,8 @@ const ClassCard = ({ item = {} }) => {
           </p>
           <p>
             {" "}
-            <span className="font-bold">Description</span>: {description}
+            <span className="font-bold">Description</span>:{" "}
+            {description.slice(0, 80)}
           </p>
           <p>
             {" "}

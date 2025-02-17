@@ -42,13 +42,13 @@ const ClassDetails = () => {
         Class Details And Information
       </h2>
 
-      <div className="flex justify-evenly items-center bg-gray-300 gap-4 w-2/3 mx-auto p-4">
+      <div className=" lg:flex md:flex lg:justify-evenly items-center bg-gray-300 gap-4 w-2/3 mx-auto p-4 ">
         {/* image */}
-        <div className="w-1/2 border-2 border-red-200">
+        <div className="w-[80%] mx-auto border-2 border-red-200">
           <img className="" src={image} alt="" />
         </div>
         {/* details */}
-        <div className="w-1/2 border-2 border-red-200 ">
+        <div className="w-full mx-auto border-2 border-red-200 ">
           <p className="my-2">
             <span>Name</span>: <span className="font-bold">{name}</span>
           </p>
@@ -56,7 +56,8 @@ const ClassDetails = () => {
             price: <span className="font-bold">{price}$</span>
           </p>
           <p className="my-2">
-            description: <span className="font-bold">{description}</span>
+            description:{" "}
+            <span className="font-bold">{description.slice(0, 80)}...</span>
           </p>
           <p>
             Title: <span className="font-bold">{title}</span>

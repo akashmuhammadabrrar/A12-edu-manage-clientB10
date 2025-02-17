@@ -10,7 +10,7 @@ import bannerD from "../../../assets/ImagesHome/young-men-working-office.jpg";
 const Banner = () => {
   return (
     <Carousel>
-      <div>
+      <div className="">
         <img src={bannerA} />
         <div className="absolute bottom-56 w-full">
           <h2 className="text-5xl text-white font-semibold bg-black opacity-40 p-10">

@@ -51,9 +51,9 @@ const TeacherCard = ({ item = {} }) => {
 
   return (
     <div>
-      <div className="card bg-base-100 w-80 shadow-xl justify-center items-center gap-4">
+      <div className="card bg-base-300 rounded-none w-[80%] h-[90%] mx-auto shadow-xl justify-center items-center gap-4">
         <figure>
-          <img src={image} alt="Shoes" />
+          <img className="object-cover mx-auto" src={image} alt="Shoes" />
         </figure>
         <div className="card-body">
           <h2 className="card-title">

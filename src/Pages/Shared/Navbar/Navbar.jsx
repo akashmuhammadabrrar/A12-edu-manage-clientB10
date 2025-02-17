@@ -61,7 +61,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="navbar max-w-screen-2xl mx-auto  bg-black bg-opacity-40 fixed z-10 top-0 lg:text-white font-bold">
+    <div className="navbar bg-black bg-opacity-40 fixed z-10 top-0 lg:text-white font-bold">
       <div className="navbar-start ">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -85,7 +85,9 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <Link to="/" className="btn btn-ghost text-2xl text-white font-bold">
+        <Link
+          to="/"
+          className="btn btn-ghost text-2xl text-white font-bold ml-6">
           <span className="text-green-400  font-bold">ED</span>
           <img className="w-8" src={logo} alt="" />
           <span className="text-blue-600">Manage</span>
@@ -101,7 +103,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar">
+            className="btn btn-ghost btn-circle avatar mr-6">
             <div className="w-16 rounded-full">
               {user && user?.email ? (
                 <div>

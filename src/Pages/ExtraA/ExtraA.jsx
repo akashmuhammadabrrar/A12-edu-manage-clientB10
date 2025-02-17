@@ -3,7 +3,7 @@ import bannerImg from "../../assets/ImagesHome/people-office-analyzing-checking-
 
 const ExtraA = () => {
   return (
-    <div className="my-12">
+    <div className="my-12 max-w-screen-2xl mx-auto">
       <div
         className="hero min-h-screen"
         style={{
