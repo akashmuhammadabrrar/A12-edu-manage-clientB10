@@ -14,9 +14,9 @@ const ExtraB = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 mt-6">
         {/* item-1 */}
-        <div className="stats shadow bg-base-200 hover:bg-blue-500 ">
+        <div className="stats shadow-xl bg-base-200 hover:bg-blue-500 ">
           <div className="stat">
-            <div className="stat-title text-black font-bold text-xl text-center">
+            <div className="stat-title text-info font-bold text-xl text-center">
               Graphics Designing
             </div>
             <div className="stat-value flex justify-center">
@@ -25,9 +25,9 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-2 */}
-        <div className="stats shadow bg-base-200 hover:bg-blue-500">
+        <div className="stats shadow-xl bg-base-200 hover:bg-blue-500">
           <div className="stat">
-            <div className="stat-title text-black font-bold text-xl text-center">
+            <div className="stat-title text-info font-bold text-xl text-center">
               Digital Marketing
             </div>
             <div className="stat-value flex justify-center">
@@ -36,9 +36,9 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-3 */}
-        <div className="stats shadow bg-base-200 hover:bg-blue-500">
+        <div className="stats shadow-xl bg-base-200 hover:bg-blue-500">
           <div className="stat">
-            <div className="stat-title text-black font-bold text-xl text-center">
+            <div className="stat-title text-info font-bold text-xl text-center">
               SEO Development
             </div>
             <div className="stat-value flex justify-center">
@@ -47,9 +47,9 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-4 */}
-        <div className="stats shadow bg-base-200 hover:bg-blue-500">
+        <div className="stats shadow-xl bg-base-200 hover:bg-blue-500">
           <div className="stat">
-            <div className="stat-title text-black font-bold text-xl text-center">
+            <div className="stat-title text-info font-bold text-xl text-center">
               Application Development
             </div>
             <div className="stat-value flex justify-center">
@@ -58,9 +58,9 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-5 */}
-        <div className="stats shadow bg-base-200 hover:bg-blue-500">
+        <div className="stats shadow-xl bg-base-200 hover:bg-blue-500">
           <div className="stat">
-            <div className="stat-title text-black font-bold text-xl text-center">
+            <div className="stat-title text-info font-bold text-xl text-center">
               Game Development
             </div>
             <div className="stat-value flex justify-center">
@@ -69,9 +69,9 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-6 */}
-        <div className="stats shadow bg-base-200 hover:bg-blue-500">
+        <div className="stats shadow-xl bg-base-200 hover:bg-blue-500">
           <div className="stat">
-            <div className="stat-title text-black font-bold text-xl text-center">
+            <div className="stat-title text-info font-bold text-xl text-center">
               UI/UX Designing
             </div>
             <div className="stat-value flex justify-center">

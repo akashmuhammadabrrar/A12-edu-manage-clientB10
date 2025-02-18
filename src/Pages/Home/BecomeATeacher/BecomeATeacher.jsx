@@ -15,7 +15,7 @@ const BecomeATeacher = () => {
             <h1 className="text-4xl font-bold">
               Become A Teacher To This Platform
             </h1>
-            <p className="py-6 text-xl font-semibold text-slate-600">
+            <p className="py-6 text-xl font-semibold ">
               If You Have Enough Ability To Teaching And Make Understanding With
               Students Then Take Massive Opportunity To Become An Honorable
               Teacher. And Make Them Shine By Your Experience And Knowledge.

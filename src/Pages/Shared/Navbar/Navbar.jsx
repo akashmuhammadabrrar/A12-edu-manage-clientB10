@@ -7,11 +7,24 @@ import useMakeTeacher from "../../../hooks/useMakeTeacher";
 import { CgProfile } from "react-icons/cg";
 import { IoHome } from "react-icons/io5";
 import { MdAddToPhotos, MdClass } from "react-icons/md";
+import { FaCodePullRequest } from "react-icons/fa6";
+import { FaBorderAll } from "react-icons/fa";
+import { ThemeContext } from "../../../Providers/ThemeProvider/ThemeProvider";
+import { FiMoon, FiSun } from "react-icons/fi";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(authContext);
   const [isTeacher] = useMakeTeacher();
   const [isAdmin, isAdminLoading] = useAdmin();
+  const { theme, toggleTheme } = useContext(ThemeContext);
+
+  if (loading || isAdminLoading) {
+    return (
+      <div className="flex justify-center items-center font-bold">
+        Loading...
+      </div>
+    );
+  }
 
   const handleLogout = () => {
     logOut()
@@ -78,17 +91,23 @@ const Navbar = () => {
               <>
                 {/* student dashboard */}
 
-                <li>
-                  <NavLink to="/dashboard/myEnroll">
-                    <MdClass className="text-xl" />
-                    My Enrollment Class
-                  </NavLink>
-                </li>
-                <li>
-                  <NavLink to="/dashboard/studentProf">
-                    <CgProfile className="text-xl" /> Profile
-                  </NavLink>
-                </li>
+                {user ? (
+                  <>
+                    <li>
+                      <NavLink to="/dashboard/myEnroll">
+                        <MdClass className="text-xl" />
+                        My Enrollment Class
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink to="/dashboard/studentProf">
+                        <CgProfile className="text-xl" /> Profile
+                      </NavLink>
+                    </li>
+                  </>
+                ) : (
+                  <></>
+                )}
               </>
             )}
           </>
@@ -132,6 +151,13 @@ const Navbar = () => {
           <img className="w-8" src={logo} alt="" />
           <span className="text-blue-600">Manage</span>
         </Link>
+        <ul>
+          <button
+            onClick={toggleTheme}
+            className=" p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
+            {theme === "dark" ? <FiSun size={24} /> : <FiMoon size={24} />}
+          </button>
+        </ul>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-white font-bold">
