@@ -11,7 +11,7 @@ const HighlightClasses = () => {
   const sliceCourse = sortedCourses.slice(0, 6);
 
   return (
-    <div>
+    <div className="max-w-screen-2xl mx-auto">
       <div className="my-10">
         <TitleSection
           heading={"Highest Enrollment This Session"}
