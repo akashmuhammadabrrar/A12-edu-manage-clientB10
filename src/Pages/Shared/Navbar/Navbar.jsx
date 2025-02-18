@@ -1,10 +1,17 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../../assets/Logo.png";
 import { authContext } from "../../../Providers/AuthProvider";
+import useAdmin from "../../../hooks/useAdmin";
+import useMakeTeacher from "../../../hooks/useMakeTeacher";
+import { CgProfile } from "react-icons/cg";
+import { IoHome } from "react-icons/io5";
+import { MdAddToPhotos, MdClass } from "react-icons/md";
 
 const Navbar = () => {
   const { user, logOut, loading } = useContext(authContext);
+  const [isTeacher] = useMakeTeacher();
+  const [isAdmin, isAdminLoading] = useAdmin();
 
   const handleLogout = () => {
     logOut()
@@ -30,33 +37,66 @@ const Navbar = () => {
       <li className="text-xl">
         <Link to="/teacherReq">Teach On Ed Manage Classroom</Link>
       </li>
-      {/* {user && isAdmin && (
+      <ul className="flex flex-col lg:flex-row lg:justify-center lg:items-center">
+        {/* Sidebar content here */}
+        {/* Admin Dashboard */}
+        {isAdmin ? (
+          <>
             <li>
-              <Link to="/secret">Secret</Link>
+              <NavLink to="/dashboard/teachersRequests">
+                <FaCodePullRequest className="text-xl" />
+                Teacher's Requests
+              </NavLink>
             </li>
-          )}
-          {user && !isAdmin && (
             <li>
-              <Link to="dashboard/userHome">User Home</Link>
+              <NavLink to="/dashboard/allClassReq">
+                <FaBorderAll className="text-xl" />
+                All Classes Req
+              </NavLink>
             </li>
-          )} */}
-      {/* <li>
-            <Link to="/dashboard/cart">
-              <p className="text-green-600 text-3xl">
-                <FaCartPlus />
-              </p>
-              <div className="badge badge-secondary">+{cart.length}</div>
-            </Link>
-          </li> */}
-      {/* <li>
-            {user ? (
-              <button onClick={handleLogout} className="btn btn-warning">
-                Logout
-              </button>
+          </>
+        ) : (
+          <>
+            {isTeacher ? (
+              <>
+                <li>
+                  <NavLink to="/dashboard/addClass">
+                    {" "}
+                    <MdAddToPhotos className="text-xl" />
+                    Add Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/myAddedClass">
+                    {" "}
+                    <MdAddToPhotos className="text-xl" />
+                    My Added Class
+                  </NavLink>
+                </li>
+              </>
             ) : (
-              <Link to="/login">Login</Link>
+              <>
+                {/* student dashboard */}
+
+                <li>
+                  <NavLink to="/dashboard/myEnroll">
+                    <MdClass className="text-xl" />
+                    My Enrollment Class
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/dashboard/studentProf">
+                    <CgProfile className="text-xl" /> Profile
+                  </NavLink>
+                </li>
+              </>
             )}
-          </li> */}
+          </>
+        )}
+        <div className="divider"></div>
+
+        {/* teacher's dashboard */}
+      </ul>
     </>
   );
 
