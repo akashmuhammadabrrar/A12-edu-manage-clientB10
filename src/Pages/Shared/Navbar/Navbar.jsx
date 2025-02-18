@@ -151,13 +151,6 @@ const Navbar = () => {
           <img className="w-8" src={logo} alt="" />
           <span className="text-blue-600">Manage</span>
         </Link>
-        <ul>
-          <button
-            onClick={toggleTheme}
-            className=" p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
-            {theme === "dark" ? <FiSun size={24} /> : <FiMoon size={24} />}
-          </button>
-        </ul>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-white font-bold">
@@ -165,6 +158,13 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
+        <ul className="mr-6">
+          <button
+            onClick={toggleTheme}
+            className=" p-2 rounded-full bg-gray-300 dark:bg-gray-700 text-gray-900 dark:text-white transition">
+            {theme === "dark" ? <FiSun size={24} /> : <FiMoon size={24} />}
+          </button>
+        </ul>
         <div className="dropdown dropdown-end">
           <div
             tabIndex={0}
