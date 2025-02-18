@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { authContext } from "../../Providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -10,21 +10,17 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+
   if (loading) {
-    return (
-      <div className="flex justify-center items-center">Loading...Loading</div>
-    );
+    return <div className="flex justify-center items-center">Loading...</div>;
   }
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
-    // console.log(email, password);
-    loginUser(email, password).then((result) => {
-      const user = result.user;
-      // console.log(user);
+    const { email, password } = credentials;
+
+    loginUser(email, password).then(() => {
       Swal.fire({
         position: "top-end",
         icon: "success",
@@ -36,15 +32,44 @@ const Login = () => {
     });
   };
 
+  // Static credentials for user, admin, and teacher
+  const fillCredentials = (role) => {
+    if (role === "admin") {
+      setCredentials({ email: "instuctor@gmail.com", password: "123456" });
+    } else if (role === "teacher") {
+      setCredentials({ email: "avatar@gmail.com", password: "123456" });
+    } else {
+      setCredentials({ email: "rasel@gmail.com", password: "123456" });
+    }
+  };
+
   return (
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <h1 className="text-5xl font-bold">Please Login Here</h1>
-          <p className="py-6">
+          <h1 className="text-5xl font-bold text-center">Please Login Here</h1>
+          <div className="divider">+</div>
+          <div className="flex justify-evenly">
+            <button
+              className="btn btn-info"
+              onClick={() => fillCredentials("user")}>
+              User Credentials
+            </button>
+            <button
+              className="btn btn-info"
+              onClick={() => fillCredentials("admin")}>
+              Admin Credentials
+            </button>
+            <button
+              className="btn btn-info"
+              onClick={() => fillCredentials("teacher")}>
+              Teacher Credentials
+            </button>
+          </div>
+
+          <p className="py-6 text-justify">
             If You Have An Account Created In This Platform Then You Can Login
-            Here. If Not Then Please Create An Account First To Access Our All
-            Information And Data.
+            Here. If Not, Please Create An Account First.
           </p>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -58,6 +83,10 @@ const Login = () => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                value={credentials.email}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, email: e.target.value })
+                }
                 required
               />
             </div>
@@ -70,6 +99,10 @@ const Login = () => {
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
+                value={credentials.password}
+                onChange={(e) =>
+                  setCredentials({ ...credentials, password: e.target.value })
+                }
                 required
               />
               <div className="mt-4">
@@ -90,8 +123,7 @@ const Login = () => {
           </form>
           <div className="divider">Or</div>
           <div className="flex justify-center">
-            {" "}
-            <SocialLogin></SocialLogin>
+            <SocialLogin />
           </div>
         </div>
       </div>
