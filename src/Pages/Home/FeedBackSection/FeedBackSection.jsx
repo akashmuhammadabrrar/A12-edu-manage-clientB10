@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TitleSection from "../../../components/TitleSection/TitleSection";
 import useAxiosPublic from "../../../hooks/useAxiosPublic";
 import { useQuery } from "@tanstack/react-query";
+import SliderRev from "./SliderRev";
 
 const FeedBackSection = () => {
   const axiosPublic = useAxiosPublic();
@@ -29,7 +30,9 @@ const FeedBackSection = () => {
       </div>
 
       {/* feedback data */}
-      <div></div>
+      <div>
+        <SliderRev></SliderRev>
+      </div>
     </div>
   );
 };

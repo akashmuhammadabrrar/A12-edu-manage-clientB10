@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const BecomeATeacher = () => {
   return (
-    <div className="max-w-screen-2xl mx-auto">
+    <div className="max-w-screen-2xl mx-auto mt-12">
       <div className="hero  bg-base-200 min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img
