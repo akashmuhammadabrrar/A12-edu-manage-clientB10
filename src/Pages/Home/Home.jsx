@@ -17,8 +17,7 @@ const Home = () => {
       <Collaborators></Collaborators>
       {/* Highlight Classes Here */}
       <HighlightClasses></HighlightClasses>
-      {/* teachers feedback section */}
-      <FeedBackSection></FeedBackSection>
+
       {/* Become a teacher section */}
       <BecomeATeacher></BecomeATeacher>
       {/* course stats(total user,total class etc) */}
@@ -29,6 +28,8 @@ const Home = () => {
       <ExtraA></ExtraA>
       {/* extra- B */}
       <ExtraB></ExtraB>
+      {/* teachers feedback section */}
+      <FeedBackSection></FeedBackSection>
     </div>
   );
 };

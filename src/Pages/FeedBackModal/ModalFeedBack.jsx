@@ -1,14 +1,46 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Modal from "react-modal";
+import { authContext } from "../../Providers/AuthProvider";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 // Set the root element for accessibility
 Modal.setAppElement("#root");
 
 const ModalFeedBack = ({ isOpen, onRequestClose }) => {
-  const handleSubmit = (event) => {
+  const { user, loading } = useContext(authContext);
+  const [feedback, setFeedback] = useState("");
+  const axiosPublic = useAxiosPublic();
+  const [rating, setRating] = useState(0);
+
+  if (loading) {
+    return <div className="flex justify-center items-center">Loading...</div>;
+  }
+
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const feedback = event.target.feedback.value;
-    console.log("Feedback:", feedback);
+    const feedbackData = {
+      feedback: feedback,
+      rating: rating,
+      user: {
+        name: user.displayName,
+        email: user.email,
+        image: user.photoURL,
+      },
+    };
+    try {
+      const response = await axiosPublic.post("/feedback", feedbackData); // Send feedback data to the server
+      Swal.fire({
+        title: "Feedback Sent!",
+        icon: "success",
+        draggable: true,
+      });
+      console.log("Feedback sent successfully:", response.data);
+    } catch (error) {
+      console.error("Error sending feedback:", error);
+    }
+
+    console.log("Feedback Data:", feedbackData);
     onRequestClose();
   };
 
@@ -19,45 +51,33 @@ const ModalFeedBack = ({ isOpen, onRequestClose }) => {
       contentLabel="Feedback Modal"
       className="flex items-center justify-center"
       overlayClassName="fixed inset-0 bg-gray-600 bg-opacity-75 flex items-center justify-center">
-      <div className="bg-white p-6 rounded shadow-lg max-w-md w-full">
+      <div
+        className="bg-white p-6 rounded shadow-lg max-w-md w-full "
+        inert={isOpen ? null : "inert"}>
         <form onSubmit={handleSubmit}>
           <div>
-            <label className="text-xl mb-2 block" htmlFor="feedback">
+            <label className="text-xl mb-2 text-black block" htmlFor="feedback">
               Your Valuable Feedback:
             </label>
-
-            {/* sm */}
             <textarea
+              name="feedback"
+              value={feedback}
+              onChange={(e) => setFeedback(e.target.value)}
               placeholder="Say Whatever You Want"
-              className="textarea textarea-bordered textarea-sm w-full max-w-xs"></textarea>
-            {/* rating */}
+              className="textarea textarea-bordered textarea-sm w-full max-w-xs"
+            />
             <div className="rating">
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-                defaultChecked
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
-              <input
-                type="radio"
-                name="rating-2"
-                className="mask mask-star-2 bg-orange-400"
-              />
+              {[...Array(5)].map((_, index) => (
+                <input
+                  key={index}
+                  type="radio"
+                  name="rating"
+                  className="mask mask-star-2 bg-orange-400"
+                  value={index + 1}
+                  checked={rating === index + 1}
+                  onChange={(e) => setRating(parseInt(e.target.value))}
+                />
+              ))}
             </div>
           </div>
           <div className="flex justify-start mt-4">
