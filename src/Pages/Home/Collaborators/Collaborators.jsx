@@ -30,46 +30,24 @@ const Collaborators = () => {
         }}
         modules={[Pagination]}
         className="mySwiper">
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img src={colA} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img src={colB} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img className="h-full w-full" src={colC} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img src={colD} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img className="" src={colE} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img src={colF} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img src={colG} alt="" />
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="bg-black p-2">
-            <img src={colA} alt="" />
-          </div>
-        </SwiperSlide>
+        {[
+          colA,
+          colB,
+          colC,
+          colD,
+          colE,
+          colF,
+          colG,
+          colA, // Repeated for demo
+        ].map((col, index) => (
+          <SwiperSlide key={index}>
+            <div className="bg-black p-2 h-36">
+              {" "}
+              {/* Set a fixed height */}
+              <img className="h-36 w-full object-cover" src={col} alt="" />
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
     </section>
   );

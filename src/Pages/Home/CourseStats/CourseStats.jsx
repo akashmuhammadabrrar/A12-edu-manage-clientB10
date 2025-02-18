@@ -40,7 +40,7 @@ const CourseStats = () => {
   // console.log(totalEnrollments);
 
   return (
-    <div className="mt-16 max-w-screen-2xl mx-auto">
+    <div className="mt-20 max-w-screen-2xl mx-auto">
       <div className="hero bg-base-200 min-h-[260px]">
         <div className="hero-content flex-col lg:flex-row-reverse justify-evenly">
           <img src={statImg} className="max-w-sm rounded-lg w-1/2 shadow-2xl" />

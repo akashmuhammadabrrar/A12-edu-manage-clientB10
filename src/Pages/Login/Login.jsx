@@ -44,7 +44,7 @@ const Login = () => {
   };
 
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div className="hero bg-base-200 max-w-screen-2xl mx-auto my-10">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold text-center">Please Login Here</h1>
