@@ -25,7 +25,7 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-2 */}
-        <div className="stats shadow bg-base-200">
+        <div className="stats shadow bg-base-200 hover:bg-blue-500">
           <div className="stat">
             <div className="stat-title text-black font-bold text-xl text-center">
               Digital Marketing
@@ -36,7 +36,7 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-3 */}
-        <div className="stats shadow bg-base-200">
+        <div className="stats shadow bg-base-200 hover:bg-blue-500">
           <div className="stat">
             <div className="stat-title text-black font-bold text-xl text-center">
               SEO Development
@@ -47,7 +47,7 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-4 */}
-        <div className="stats shadow bg-base-200">
+        <div className="stats shadow bg-base-200 hover:bg-blue-500">
           <div className="stat">
             <div className="stat-title text-black font-bold text-xl text-center">
               Application Development
@@ -58,7 +58,7 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-5 */}
-        <div className="stats shadow bg-base-200">
+        <div className="stats shadow bg-base-200 hover:bg-blue-500">
           <div className="stat">
             <div className="stat-title text-black font-bold text-xl text-center">
               Game Development
@@ -69,7 +69,7 @@ const ExtraB = () => {
           </div>
         </div>
         {/* item-6 */}
-        <div className="stats shadow bg-base-200">
+        <div className="stats shadow bg-base-200 hover:bg-blue-500">
           <div className="stat">
             <div className="stat-title text-black font-bold text-xl text-center">
               UI/UX Designing
@@ -80,33 +80,6 @@ const ExtraB = () => {
           </div>
         </div>
       </div>
-
-      {/* <div className=" mt-10">
-        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
-          <p className="font-bold text-xl">Graphics Designing</p>
-          <IoIosColorPalette className="text-xl" />
-        </div>
-        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
-          <p className="font-bold text-xl">Digital Marketing</p>
-          <SiGooglemarketingplatform />
-        </div>
-        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
-          <p className="font-bold text-xl">SEO Development </p>
-          <IoBriefcaseOutline />
-        </div>
-        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
-          <p className="font-bold text-xl">App Development </p>
-          <FaAppStore />
-        </div>
-        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
-          <p className="font-bold text-xl">Game Development</p>
-          <IoGameControllerSharp />
-        </div>
-        <div className=" p-4 h-24 bg-gray-200 rounded-md mx-auto">
-          <p className="font-bold text-xl">UI/Ux Designing</p>
-          <FaAcquisitionsIncorporated />
-        </div>
-      </div> */}
     </div>
   );
 };

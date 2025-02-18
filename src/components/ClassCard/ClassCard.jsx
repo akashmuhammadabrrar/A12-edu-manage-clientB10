@@ -23,7 +23,11 @@ const ClassCard = ({ item = {} }) => {
     <div>
       <div className="card bg-base-300 rounded w-[80%] mx-auto h-[500px] shadow-xl gap-4">
         <figure className="px-10 pt-10">
-          <img src={image} alt="Shoes" className="rounded-xl w-72" />
+          <img
+            src={image}
+            alt="Shoes"
+            className="rounded-xl w-[80%] h-[95%] object-cover mx-auto"
+          />
         </figure>
         <div className="card-body items-start text-start">
           <h2 className="card-title">{title}</h2>
