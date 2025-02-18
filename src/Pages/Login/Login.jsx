@@ -11,7 +11,9 @@ const Login = () => {
   const from = location.state?.from?.pathname || "/";
 
   if (loading) {
-    return <div className="flex justify-center items-center">Loading...</div>;
+    return (
+      <div className="flex justify-center items-center">Loading...Loading</div>
+    );
   }
 
   const handleLogin = (e) => {
