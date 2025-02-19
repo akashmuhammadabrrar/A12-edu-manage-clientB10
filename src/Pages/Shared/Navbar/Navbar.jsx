@@ -198,9 +198,9 @@ const Navbar = () => {
               </p>
             </div>
             <li>
-              <Link>
+              {/* <Link>
                 <button className="btn btn-ghost">Profile</button>
-              </Link>
+              </Link> */}
             </li>
             <li>
               <Link to="/dashboard/userHome">
