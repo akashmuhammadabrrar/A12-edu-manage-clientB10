@@ -24,6 +24,9 @@ import TeacherClassTask from "../Pages/TeachingRequestForm/TeacherClassTask/Teac
 import MyClassTasks from "../Pages/MyClassTask/MyClassTasks";
 import Contacts from "../Pages/Contacts/Contacts";
 import Blogs from "../Pages/Blogs/Blogs";
+import About from "../Pages/About/About";
+import Branding from "../Pages/Branding/Branding";
+import Marketing from "../Pages/Marketing/Marketing";
 
 export const router = createBrowserRouter([
   {
@@ -82,6 +85,18 @@ export const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>,
+      },
+      {
+        path: "/about",
+        element: <About></About>,
+      },
+      {
+        path: "/branding",
+        element: <Branding></Branding>,
+      },
+      {
+        path: "/marketing",
+        element: <Marketing></Marketing>,
       },
     ],
   },
