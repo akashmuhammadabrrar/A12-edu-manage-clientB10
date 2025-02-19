@@ -22,6 +22,8 @@ import MyAddedClass from "../Pages/TeachingRequestForm/MyAddedClass/MyAddedClass
 import UpdateClass from "../Pages/updateClass/UpdateClass";
 import TeacherClassTask from "../Pages/TeachingRequestForm/TeacherClassTask/TeacherClassTask";
 import MyClassTasks from "../Pages/MyClassTask/MyClassTasks";
+import Contacts from "../Pages/Contacts/Contacts";
+import Blogs from "../Pages/Blogs/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -72,6 +74,14 @@ export const router = createBrowserRouter([
             <ClassDetails></ClassDetails>
           </PrivetRoute>
         ),
+      },
+      {
+        path: "/contacts",
+        element: <Contacts></Contacts>,
+      },
+      {
+        path: "/blogs",
+        element: <Blogs></Blogs>,
       },
     ],
   },

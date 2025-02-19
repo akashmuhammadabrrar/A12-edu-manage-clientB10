@@ -1,5 +1,6 @@
 import React from "react";
 import bannerImg from "../../assets/ImagesHome/people-office-analyzing-checking-finance-graphs.jpg";
+import { Link } from "react-router-dom";
 
 const ExtraA = () => {
   return (
@@ -20,9 +21,11 @@ const ExtraA = () => {
               globally most demandable and best way to Learning.So don't be late
               to enroll as your choice.
             </p>
-            <button className="btn btn-info btn-wide btn-outline text-white font-bold">
-              <span className="text-xl">☺</span> See More 🏡{" "}
-            </button>
+            <Link to="/contacts">
+              <button className="btn btn-info btn-wide btn-outline text-white font-bold">
+                <span className="text-xl">☺</span> See More 🏡{" "}
+              </button>
+            </Link>
           </div>
         </div>
       </div>
